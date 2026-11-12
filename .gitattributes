@@ -1,0 +1,3 @@
+# Keep vendor documents byte-exact (hidden text, zero-width chars, PDF streams)
+*.pdf binary
+data/** -text

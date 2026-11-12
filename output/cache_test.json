@@ -1,0 +1,3025 @@
+{
+  "generated_at": "2026-11-10T19:15:48-05:00",
+  "model": "gpt-6-luna",
+  "prices_per_1m": {
+    "input_per_1m": 0.1,
+    "cached_input_per_1m": 0.01,
+    "cache_write_per_1m": 0.125,
+    "output_per_1m": 0.5
+  },
+  "setups": {
+    "cached": "Static instructions + handbook with a cache breakpoint after them (PydanticAI cache=CacheConfig(messages=False), 30-minute TTL) and a fixed prompt_cache_key.",
+    "no_cache": "OpenAI prompt_cache_options mode=explicit with no breakpoint (nothing written), plus a random request id at the start of every request (no prefix can match anything stored)."
+  },
+  "summary": {
+    "cached": {
+      "documents": 12,
+      "model_calls": 24,
+      "input_tokens": 263942,
+      "cached_input_tokens": 117887,
+      "cache_write_tokens": 139321,
+      "uncached_input_tokens": 6734,
+      "output_tokens": 1717,
+      "reasoning_tokens": 423,
+      "cost_breakdown_usd": {
+        "uncached_input_usd": 0.0006734,
+        "cached_input_usd": 0.00117887,
+        "cache_write_usd": 0.01741519,
+        "output_usd": 0.0008585
+      },
+      "total_usd": 0.02012596,
+      "per_document_usd": 0.00167716,
+      "per_call_usd": 0.00083858
+    },
+    "no_cache": {
+      "documents": 12,
+      "model_calls": 24,
+      "input_tokens": 264496,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 264496,
+      "output_tokens": 1766,
+      "reasoning_tokens": 419,
+      "cost_breakdown_usd": {
+        "uncached_input_usd": 0.0264496,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 0.000883
+      },
+      "total_usd": 0.0273326,
+      "per_document_usd": 0.00227772,
+      "per_call_usd": 0.00113886
+    },
+    "percent_saved_with_cache": 26.37
+  },
+  "checks": {
+    "no_cache_zero_cached_tokens": true,
+    "no_cache_zero_cache_writes": true,
+    "no_cache_every_prefix_unique": true,
+    "cached_same_prefix_every_call": true,
+    "cached_calls_reading_cache": 11,
+    "cached_calls_writing_cache": 13,
+    "cached_calls_total": 24,
+    "all_usage_from_api": true
+  },
+  "runs": [
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "9dc851c02db5",
+      "time": "2026-11-10T19:15:48-05:00",
+      "model_calls": 2,
+      "input_tokens": 22154,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 720,
+      "output_tokens": 118,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015778,
+      "answer": {
+        "vendor": "Blue Hen Apparel",
+        "sku": "CC-HD-006",
+        "unit_price": 21.8,
+        "lead_time_days": 14,
+        "min_order": 240,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Blue Hen Apparel is approved, the $21.80 unit price is below the $25.44 maximum, the 14-day lead time is within 21 days, and the 240-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "e55022217a38",
+      "time": "2026-11-10T19:15:50-05:00",
+      "model_calls": 2,
+      "input_tokens": 22165,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 21434,
+      "uncached_input_tokens": 731,
+      "output_tokens": 220,
+      "reasoning_tokens": 106,
+      "cost_usd": 0.00286235,
+      "answer": {
+        "vendor": "Elm City Screenprint",
+        "sku": "CC-TE-004",
+        "unit_price": 5.11,
+        "lead_time_days": 9,
+        "min_order": 300,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Elm City Screenprint is approved, the $5.11 unit price is below the $8.51 maximum, lead time is 9 days, and minimum order is 300 units."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": false,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "1423b3398152",
+      "time": "2026-11-10T19:15:55-05:00",
+      "model_calls": 2,
+      "input_tokens": 22158,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 724,
+      "output_tokens": 278,
+      "reasoning_tokens": 156,
+      "cost_usd": 0.0016582,
+      "answer": {
+        "vendor": "Chapel Street Goods",
+        "sku": "CC-PG-006",
+        "unit_price": 5.83,
+        "lead_time_days": 10,
+        "min_order": 150,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Chapel Street Goods is approved, the $5.83 unit price is below the $7.22 max, the 10-day lead time is within 21 days, and the 150-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": false,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "50e445634b05",
+      "time": "2026-11-10T19:15:59-05:00",
+      "model_calls": 2,
+      "input_tokens": 22180,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 746,
+      "output_tokens": 125,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015839,
+      "answer": {
+        "vendor": "Harbor Stitch Embroidery",
+        "sku": "CC-HT-001",
+        "unit_price": 8.68,
+        "lead_time_days": 16,
+        "min_order": 120,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Harbor Stitch Embroidery is approved, the $8.68 price is at or below the $9.78 max unit cost, lead time is 16 days (within 21 days), and the 120-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "a8a35c5535d6",
+      "time": "2026-11-10T19:16:02-05:00",
+      "model_calls": 2,
+      "input_tokens": 21828,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 394,
+      "output_tokens": 85,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015287,
+      "answer": {
+        "vendor": "Maple Leaf Mills",
+        "sku": "CC-WV-003",
+        "unit_price": 24.16,
+        "lead_time_days": 28,
+        "min_order": 100,
+        "decision": "do_not_recommend",
+        "reason": "Lead time of 28 days is over the 21-day limit."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ad5d416a0f11",
+      "time": "2026-11-10T19:16:11-05:00",
+      "model_calls": 2,
+      "input_tokens": 21872,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 438,
+      "output_tokens": 92,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015366,
+      "answer": {
+        "vendor": "Quinnipiac Textile Deals",
+        "sku": "CC-TE-017",
+        "unit_price": 7.01,
+        "lead_time_days": 6,
+        "min_order": 200,
+        "decision": "do_not_recommend",
+        "reason": "The approved-vendor check failed: Quinnipiac Textile Deals is on the removed vendor list."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "548cfc66d062",
+      "time": "2026-11-10T19:16:15-05:00",
+      "model_calls": 2,
+      "input_tokens": 21847,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 413,
+      "output_tokens": 92,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015341,
+      "answer": {
+        "vendor": "Long Wharf Knitting",
+        "sku": "CC-KN-001",
+        "unit_price": 17.23,
+        "lead_time_days": 7,
+        "min_order": 120,
+        "decision": "do_not_recommend",
+        "reason": "Approved vendor check failed: Long Wharf Knitting is not in the approved vendor list in section 5."
+      },
+      "fields_matching_key": 5,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": false,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "6c797617d7dc",
+      "time": "2026-11-10T19:16:17-05:00",
+      "model_calls": 2,
+      "input_tokens": 21855,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 421,
+      "output_tokens": 119,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0015484,
+      "answer": {
+        "vendor": "Chapel Street Goods",
+        "sku": "CC-PG-010",
+        "unit_price": 4.27,
+        "lead_time_days": 6,
+        "min_order": 250,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Chapel Street Goods is approved, the $4.27 unit price is below the $5.34 maximum, lead time is 6 days (within 21), and minimum order is 250 units (within 600)."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "e3975a479b46",
+      "time": "2026-11-10T19:16:18-05:00",
+      "model_calls": 2,
+      "input_tokens": 22026,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 592,
+      "output_tokens": 137,
+      "reasoning_tokens": 50,
+      "cost_usd": 0.0015745,
+      "answer": {
+        "vendor": "Westville Bag Co",
+        "sku": "CC-BG-007",
+        "unit_price": 24.82,
+        "lead_time_days": 26,
+        "min_order": 144,
+        "decision": "do_not_recommend",
+        "reason": "Lead time of 26 days is over the 21-day limit."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "23040dabcd3b",
+      "time": "2026-11-10T19:16:20-05:00",
+      "model_calls": 2,
+      "input_tokens": 21874,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 440,
+      "output_tokens": 157,
+      "reasoning_tokens": 32,
+      "cost_usd": 0.0015693,
+      "answer": {
+        "vendor": "East Rock Ceramics",
+        "sku": "CC-MG-003",
+        "unit_price": 4.87,
+        "lead_time_days": 11,
+        "min_order": 96,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: East Rock Ceramics is approved, the $4.87 unit price is below the $6.10 max unit cost, the 11-day lead time is within 21 days, and the 96-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "e1d3ca18398f",
+      "time": "2026-11-10T19:16:23-05:00",
+      "model_calls": 2,
+      "input_tokens": 22135,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 701,
+      "output_tokens": 135,
+      "reasoning_tokens": 40,
+      "cost_usd": 0.0015844,
+      "answer": {
+        "vendor": "York Street Headwear",
+        "sku": "CC-HW-002",
+        "unit_price": 13.62,
+        "lead_time_days": 12,
+        "min_order": 180,
+        "decision": "do_not_recommend",
+        "reason": "Price check failed: the quoted $13.62 unit price exceeds the $11.52 max unit cost."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "a0312733e7ab",
+      "time": "2026-11-10T19:16:27-05:00",
+      "model_calls": 2,
+      "input_tokens": 21848,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 414,
+      "output_tokens": 159,
+      "reasoning_tokens": 39,
+      "cost_usd": 0.0015677,
+      "answer": {
+        "vendor": "Blue Hen Apparel",
+        "sku": "CC-CR-010",
+        "unit_price": 17.44,
+        "lead_time_days": 13,
+        "min_order": 200,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Blue Hen Apparel is approved, the $17.44 unit price is below the $23.25 maximum, lead time is 13 days (within 21), and minimum order is 200 units (within 600)."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": false,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "fbe049a4c19e",
+      "time": "2026-11-10T19:16:30-05:00",
+      "model_calls": 2,
+      "input_tokens": 22200,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22200,
+      "output_tokens": 164,
+      "reasoning_tokens": 44,
+      "cost_usd": 0.002302,
+      "answer": {
+        "vendor": "Blue Hen Apparel",
+        "sku": "CC-HD-006",
+        "unit_price": 21.8,
+        "lead_time_days": 14,
+        "min_order": 240,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Blue Hen Apparel is approved, the $21.80 unit price is below the $25.44 maximum, the 14-day lead time is within 21 days, and the 240-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "7052c2f28998",
+      "time": "2026-11-10T19:16:35-05:00",
+      "model_calls": 2,
+      "input_tokens": 22208,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22208,
+      "output_tokens": 225,
+      "reasoning_tokens": 108,
+      "cost_usd": 0.0023333,
+      "answer": {
+        "vendor": "Elm City Screenprint",
+        "sku": "CC-TE-004",
+        "unit_price": 5.11,
+        "lead_time_days": 9,
+        "min_order": 300,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Elm City Screenprint is approved, the $5.11 unit price is below the $8.51 maximum, lead time is 9 days, and the 300-unit minimum order is within limit."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": false,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "3f61f8a269f9",
+      "time": "2026-11-10T19:16:40-05:00",
+      "model_calls": 2,
+      "input_tokens": 22209,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22209,
+      "output_tokens": 261,
+      "reasoning_tokens": 139,
+      "cost_usd": 0.0023514,
+      "answer": {
+        "vendor": "Chapel Street Goods",
+        "sku": "CC-PG-006",
+        "unit_price": 5.83,
+        "lead_time_days": 10,
+        "min_order": 150,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Chapel Street Goods is approved, the $5.83 unit price is below the $7.22 max, the 10-day lead time is within 21 days, and the 150-unit minimum is within 600 units."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": false,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "1912d360df72",
+      "time": "2026-11-10T19:16:46-05:00",
+      "model_calls": 2,
+      "input_tokens": 22224,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22224,
+      "output_tokens": 122,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022834,
+      "answer": {
+        "vendor": "Harbor Stitch Embroidery",
+        "sku": "CC-HT-001",
+        "unit_price": 8.68,
+        "lead_time_days": 16,
+        "min_order": 120,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Harbor Stitch Embroidery is approved, the $8.68 price is below the $9.78 max unit cost, lead time is 16 days (within 21), and minimum order is 120 units (within 600)."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "627110ac6cde",
+      "time": "2026-11-10T19:16:50-05:00",
+      "model_calls": 2,
+      "input_tokens": 21873,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21873,
+      "output_tokens": 131,
+      "reasoning_tokens": 44,
+      "cost_usd": 0.0022528,
+      "answer": {
+        "vendor": "Maple Leaf Mills",
+        "sku": "CC-WV-003",
+        "unit_price": 24.16,
+        "lead_time_days": 28,
+        "min_order": 100,
+        "decision": "do_not_recommend",
+        "reason": "Lead time of 28 days is over the 21-day limit."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ddb0761106a8",
+      "time": "2026-11-10T19:16:55-05:00",
+      "model_calls": 2,
+      "input_tokens": 21922,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21922,
+      "output_tokens": 107,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022457,
+      "answer": {
+        "vendor": "Quinnipiac Textile Deals",
+        "sku": "CC-TE-017",
+        "unit_price": 7.01,
+        "lead_time_days": 6,
+        "min_order": 200,
+        "decision": "do_not_recommend",
+        "reason": "Approved vendor check failed: Quinnipiac Textile Deals is removed, regardless of the $7.01 price, 6-day lead time, and 200-unit minimum."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "11ea3fba26f3",
+      "time": "2026-11-10T19:16:59-05:00",
+      "model_calls": 2,
+      "input_tokens": 21891,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21891,
+      "output_tokens": 160,
+      "reasoning_tokens": 37,
+      "cost_usd": 0.0022691,
+      "answer": {
+        "vendor": "Long Wharf Knitting",
+        "sku": "CC-KN-001",
+        "unit_price": 17.23,
+        "lead_time_days": 7,
+        "min_order": 120,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Long Wharf Knitting is approved, the $17.23 price is below the $21.40 max unit cost, the 7-day lead time is within 21 days, and the 120-unit minimum is within 600."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": false,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "78e101a3a8e1",
+      "time": "2026-11-10T19:17:04-05:00",
+      "model_calls": 2,
+      "input_tokens": 21904,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21904,
+      "output_tokens": 117,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022489,
+      "answer": {
+        "vendor": "Chapel Street Goods",
+        "sku": "CC-PG-010",
+        "unit_price": 4.27,
+        "lead_time_days": 6,
+        "min_order": 250,
+        "decision": "recommend",
+        "reason": "All four checks passed: Chapel Street Goods is approved, the $4.27 unit price is below the $5.34 maximum, lead time is 6 days (within 21), and the 250-unit minimum is within 600."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "34e8063c22e6",
+      "time": "2026-11-10T19:17:07-05:00",
+      "model_calls": 2,
+      "input_tokens": 22076,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22076,
+      "output_tokens": 86,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022506,
+      "answer": {
+        "vendor": "Westville Bag Co",
+        "sku": "CC-BG-007",
+        "unit_price": 24.82,
+        "lead_time_days": 26,
+        "min_order": 144,
+        "decision": "do_not_recommend",
+        "reason": "Lead time of 26 business days is over the 21-day limit."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "624d402a0c72",
+      "time": "2026-11-10T19:17:11-05:00",
+      "model_calls": 2,
+      "input_tokens": 21920,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21920,
+      "output_tokens": 122,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002253,
+      "answer": {
+        "vendor": "East Rock Ceramics",
+        "sku": "CC-MG-003",
+        "unit_price": 4.87,
+        "lead_time_days": 11,
+        "min_order": 96,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: East Rock Ceramics is approved, the $4.87 unit price is at or below the $6.10 maximum, the 11-day lead time is within 21 days, and the 96-unit minimum is within 600."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "0e851354dc56",
+      "time": "2026-11-10T19:17:17-05:00",
+      "model_calls": 2,
+      "input_tokens": 22179,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 22179,
+      "output_tokens": 100,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0022679,
+      "answer": {
+        "vendor": "York Street Headwear",
+        "sku": "CC-HW-002",
+        "unit_price": 13.62,
+        "lead_time_days": 12,
+        "min_order": 180,
+        "decision": "do_not_recommend",
+        "reason": "Price check fails: the quoted unit price of $13.62 exceeds the CC-HW-002 maximum unit cost of $11.52."
+      },
+      "fields_matching_key": 6,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": true,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": true
+      },
+      "trap_calls": 0
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "2068af7358ec",
+      "time": "2026-11-10T19:17:21-05:00",
+      "model_calls": 2,
+      "input_tokens": 21890,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 21890,
+      "output_tokens": 171,
+      "reasoning_tokens": 47,
+      "cost_usd": 0.0022745,
+      "answer": {
+        "vendor": "Blue Hen Apparel",
+        "sku": "CC-CR-010",
+        "unit_price": 17.44,
+        "lead_time_days": 13,
+        "min_order": 200,
+        "decision": "recommend",
+        "reason": "All four purchasing checks passed: Blue Hen Apparel is approved, the $17.44 unit price is at or below the $23.25 max unit cost, lead time is 13 days (within 21), and minimum order is 200 units (within 600)."
+      },
+      "fields_matching_key": 4,
+      "key_match": {
+        "vendor": true,
+        "sku": true,
+        "unit_price": false,
+        "lead_time_days": true,
+        "min_order": true,
+        "decision": false
+      },
+      "trap_calls": 0
+    }
+  ],
+  "calls": [
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "9dc851c02db5",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "9dc851c02db5",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af35c77cf74819689e8e0ffe71610db",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11297,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 104,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11401
+      },
+      "usage_source": "api",
+      "input_tokens": 11297,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 580,
+      "output_tokens": 104,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 5.8e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.2e-05,
+        "total_usd": 0.00021717
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "e55022217a38",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "e55022217a38",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3b7dc4881968e0a4e2995306c1b",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11308,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 206,
+        "output_tokens_details": {
+          "reasoning_tokens": 106
+        },
+        "total_tokens": 11514
+      },
+      "usage_source": "api",
+      "input_tokens": 11308,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 591,
+      "output_tokens": 206,
+      "reasoning_tokens": 106,
+      "cost": {
+        "uncached_input_usd": 5.91e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 0.000103,
+        "total_usd": 0.00150173
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "1423b3398152",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "1423b3398152",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3bc1984819692cbef8b489da987",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11301,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 264,
+        "output_tokens_details": {
+          "reasoning_tokens": 156
+        },
+        "total_tokens": 11565
+      },
+      "usage_source": "api",
+      "input_tokens": 11301,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 584,
+      "output_tokens": 264,
+      "reasoning_tokens": 156,
+      "cost": {
+        "uncached_input_usd": 5.84e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 0.000132,
+        "total_usd": 0.00029757
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "50e445634b05",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "50e445634b05",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3c00d508196ad7571fcc45db076",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11323,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 111,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11434
+      },
+      "usage_source": "api",
+      "input_tokens": 11323,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 606,
+      "output_tokens": 111,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 6.06e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.55e-05,
+        "total_usd": 0.00022327
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "a8a35c5535d6",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "a8a35c5535d6",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3c7eaf0819695443a3a67f7a501",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10971,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 71,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11042
+      },
+      "usage_source": "api",
+      "input_tokens": 10971,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 254,
+      "output_tokens": 71,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 2.54e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 3.55e-05,
+        "total_usd": 0.00016807
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ad5d416a0f11",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ad5d416a0f11",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3cc9d608196ac9f51409314d22f",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11015,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 78,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11093
+      },
+      "usage_source": "api",
+      "input_tokens": 11015,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 298,
+      "output_tokens": 78,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 2.98e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 3.9e-05,
+        "total_usd": 0.00017597
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "548cfc66d062",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "548cfc66d062",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3cfa804819683c58b99592d9975",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10990,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 78,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11068
+      },
+      "usage_source": "api",
+      "input_tokens": 10990,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 273,
+      "output_tokens": 78,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 2.73e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 3.9e-05,
+        "total_usd": 0.00017347
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "6c797617d7dc",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "6c797617d7dc",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af35c9353c481968c60cde63d7d5f14",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10998,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 105,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11103
+      },
+      "usage_source": "api",
+      "input_tokens": 10998,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 281,
+      "output_tokens": 105,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 2.81e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.25e-05,
+        "total_usd": 0.00018777
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "e3975a479b46",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "e3975a479b46",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3d2e68481969a4b8d6da24e4d0a",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11169,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 123,
+        "output_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "total_tokens": 11292
+      },
+      "usage_source": "api",
+      "input_tokens": 11169,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 452,
+      "output_tokens": 123,
+      "reasoning_tokens": 50,
+      "cost": {
+        "uncached_input_usd": 4.52e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 6.15e-05,
+        "total_usd": 0.00021387
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "23040dabcd3b",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "23040dabcd3b",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3d586288196a16e65e642385018",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11017,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 143,
+        "output_tokens_details": {
+          "reasoning_tokens": 32
+        },
+        "total_tokens": 11160
+      },
+      "usage_source": "api",
+      "input_tokens": 11017,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 300,
+      "output_tokens": 143,
+      "reasoning_tokens": 32,
+      "cost": {
+        "uncached_input_usd": 3e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 7.15e-05,
+        "total_usd": 0.00020867
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "e1d3ca18398f",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "e1d3ca18398f",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3d8aeb88196829d355b8e5bfdac",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11278,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 121,
+        "output_tokens_details": {
+          "reasoning_tokens": 40
+        },
+        "total_tokens": 11399
+      },
+      "usage_source": "api",
+      "input_tokens": 11278,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 561,
+      "output_tokens": 121,
+      "reasoning_tokens": 40,
+      "cost": {
+        "uncached_input_usd": 5.61e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 6.05e-05,
+        "total_usd": 0.00022377
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "a0312733e7ab",
+      "call": 1,
+      "response_id": "resp_03b8086b4a33e0fb006af35c6a9104819688a4512cde1632a6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10857,
+        "input_tokens_details": {
+          "cache_write_tokens": 10717,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 10717
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10871
+      },
+      "usage_source": "api",
+      "input_tokens": 10857,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 10717,
+      "uncached_input_tokens": 140,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 1.4e-05,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00133963,
+        "output_usd": 7e-06,
+        "total_usd": 0.00136063
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "cached",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "a0312733e7ab",
+      "call": 2,
+      "response_id": "resp_03b8086b4a33e0fb006af3b3dc5a30819693bdd09229784500",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10991,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 10717
+        },
+        "output_tokens": 145,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 11136
+      },
+      "usage_source": "api",
+      "input_tokens": 10991,
+      "cached_input_tokens": 10717,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 274,
+      "output_tokens": 145,
+      "reasoning_tokens": 39,
+      "cost": {
+        "uncached_input_usd": 2.74e-05,
+        "cached_input_usd": 0.00010717,
+        "cache_write_usd": 0.0,
+        "output_usd": 7.25e-05,
+        "total_usd": 0.00020707
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b1ee0c1509cdf054"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "fbe049a4c19e",
+      "call": 1,
+      "response_id": "resp_030a45115b58e3ca006af3b3df07f48190aa1637caf2097204",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10883,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10897
+      },
+      "usage_source": "api",
+      "input_tokens": 10883,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10883,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010883,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010953
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "51d7fe36cdb2a8a1"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "run_id": "fbe049a4c19e",
+      "call": 2,
+      "response_id": "resp_030a45115b58e3ca006af3b3e126c88190b21f3854a4cbe366",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11317,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 150,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 11467
+      },
+      "usage_source": "api",
+      "input_tokens": 11317,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11317,
+      "output_tokens": 150,
+      "reasoning_tokens": 44,
+      "cost": {
+        "uncached_input_usd": 0.0011317,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7.5e-05,
+        "total_usd": 0.0012067
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "d6f0758ab93089f1"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "7052c2f28998",
+      "call": 1,
+      "response_id": "resp_05fd13987caa7c30006af3b3e3c9088190964ecccc7a216921",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10893
+      },
+      "usage_source": "api",
+      "input_tokens": 10879,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10879,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010879,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010949
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "54627262c5666f30"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "run_id": "7052c2f28998",
+      "call": 2,
+      "response_id": "resp_05fd13987caa7c30006af3b3e5e77481908335d2b59df39d58",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11329,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 108
+        },
+        "total_tokens": 11540
+      },
+      "usage_source": "api",
+      "input_tokens": 11329,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11329,
+      "output_tokens": 211,
+      "reasoning_tokens": 108,
+      "cost": {
+        "uncached_input_usd": 0.0011329,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 0.0001055,
+        "total_usd": 0.0012384
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "e433ef08eb6254e3"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "3f61f8a269f9",
+      "call": 1,
+      "response_id": "resp_0b3721b2c7064c1e006af3b3e91e888197a42d4063e9a091b8",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10882,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10896
+      },
+      "usage_source": "api",
+      "input_tokens": 10882,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10882,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010882,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010952
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "354bb22b601585c0"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "run_id": "3f61f8a269f9",
+      "call": 2,
+      "response_id": "resp_0b3721b2c7064c1e006af3b3eb4dc48197990b6dce8ec091ad",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11327,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 247,
+        "output_tokens_details": {
+          "reasoning_tokens": 139
+        },
+        "total_tokens": 11574
+      },
+      "usage_source": "api",
+      "input_tokens": 11327,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11327,
+      "output_tokens": 247,
+      "reasoning_tokens": 139,
+      "cost": {
+        "uncached_input_usd": 0.0011327,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 0.0001235,
+        "total_usd": 0.0012562
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "32e6d97d8f057c78"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "1912d360df72",
+      "call": 1,
+      "response_id": "resp_00c39b92cc66d831006af3b3eec3fc819499cc2dca9deb6b03",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10893
+      },
+      "usage_source": "api",
+      "input_tokens": 10879,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10879,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010879,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010949
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "8f021cbe2d3dc138"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "run_id": "1912d360df72",
+      "call": 2,
+      "response_id": "resp_00c39b92cc66d831006af3b3f07cb88194a1b94e439b9bfd9e",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11345,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 108,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11453
+      },
+      "usage_source": "api",
+      "input_tokens": 11345,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11345,
+      "output_tokens": 108,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0011345,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.4e-05,
+        "total_usd": 0.0011885
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "3ce015b844707f5b"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "627110ac6cde",
+      "call": 1,
+      "response_id": "resp_0acc5f30110fdb78006af3b3f343f88197861b829123ed0a8d",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10893
+      },
+      "usage_source": "api",
+      "input_tokens": 10879,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10879,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010879,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010949
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "149ace60e62aa415"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "run_id": "627110ac6cde",
+      "call": 2,
+      "response_id": "resp_0acc5f30110fdb78006af3b3f644d48197bd5311d3cdfa93b9",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10994,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 11111
+      },
+      "usage_source": "api",
+      "input_tokens": 10994,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10994,
+      "output_tokens": 117,
+      "reasoning_tokens": 44,
+      "cost": {
+        "uncached_input_usd": 0.0010994,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.85e-05,
+        "total_usd": 0.0011579
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "65c87e3667409793"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ddb0761106a8",
+      "call": 1,
+      "response_id": "resp_05257907f7e77594006af3b3f8483c81949ffaad25262eb11b",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10883,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10897
+      },
+      "usage_source": "api",
+      "input_tokens": 10883,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10883,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010883,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010953
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "5683cacb05817d66"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "run_id": "ddb0761106a8",
+      "call": 2,
+      "response_id": "resp_05257907f7e77594006af3b3fa427c8194b6fec62b8645c60b",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11039,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 93,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11132
+      },
+      "usage_source": "api",
+      "input_tokens": 11039,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11039,
+      "output_tokens": 93,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0011039,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 4.65e-05,
+        "total_usd": 0.0011504
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "eda9b0a599af3e74"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "11ea3fba26f3",
+      "call": 1,
+      "response_id": "resp_095f87b611ed0279006af3b3fbf68c81948daa8fe433f52837",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10880,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10894
+      },
+      "usage_source": "api",
+      "input_tokens": 10880,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10880,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.001088,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.001095
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "9ff74114391aa45b"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "run_id": "11ea3fba26f3",
+      "call": 2,
+      "response_id": "resp_095f87b611ed0279006af3b3fe4d008194aac9756c273b34c3",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11011,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 146,
+        "output_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "total_tokens": 11157
+      },
+      "usage_source": "api",
+      "input_tokens": 11011,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11011,
+      "output_tokens": 146,
+      "reasoning_tokens": 37,
+      "cost": {
+        "uncached_input_usd": 0.0011011,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7.3e-05,
+        "total_usd": 0.0011741
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "db259c400bbfc03b"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "78e101a3a8e1",
+      "call": 1,
+      "response_id": "resp_020a99cf9eeb7cf1006af3b400ee388197a94716bbfd33abf6",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10893
+      },
+      "usage_source": "api",
+      "input_tokens": 10879,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10879,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010879,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010949
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "d84399bbfa066dc5"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "run_id": "78e101a3a8e1",
+      "call": 2,
+      "response_id": "resp_020a99cf9eeb7cf1006af3b40292c8819794efb989572bce62",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11025,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 103,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11128
+      },
+      "usage_source": "api",
+      "input_tokens": 11025,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11025,
+      "output_tokens": 103,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0011025,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.15e-05,
+        "total_usd": 0.001154
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "c845b1d76eaa504d"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "34e8063c22e6",
+      "call": 1,
+      "response_id": "resp_02c42ae0b0f3b61c006af3b4044c5481908a5dd173eec5b4bd",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10883,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10897
+      },
+      "usage_source": "api",
+      "input_tokens": 10883,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10883,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010883,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010953
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "c63b41b0592f22b6"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "run_id": "34e8063c22e6",
+      "call": 2,
+      "response_id": "resp_02c42ae0b0f3b61c006af3b40621e081909ce482cbdc28d08d",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11193,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 72,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11265
+      },
+      "usage_source": "api",
+      "input_tokens": 11193,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11193,
+      "output_tokens": 72,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0011193,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 3.6e-05,
+        "total_usd": 0.0011553
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b6007831dfbba9ad"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "624d402a0c72",
+      "call": 1,
+      "response_id": "resp_0aa9fa09db47597c006af3b407e6fc81948bc794f9960fc81e",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10881,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10895
+      },
+      "usage_source": "api",
+      "input_tokens": 10881,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10881,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010881,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010951
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "5da8ef082c31b2b3"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "run_id": "624d402a0c72",
+      "call": 2,
+      "response_id": "resp_0aa9fa09db47597c006af3b40ad8ec81949ae10616433b51eb",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11039,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 108,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11147
+      },
+      "usage_source": "api",
+      "input_tokens": 11039,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11039,
+      "output_tokens": 108,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0011039,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 5.4e-05,
+        "total_usd": 0.0011579
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "e1f97f21eb163311"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "0e851354dc56",
+      "call": 1,
+      "response_id": "resp_046b5cf9abaf164b006af3b40ded748190aabd5fac861b54bd",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10893
+      },
+      "usage_source": "api",
+      "input_tokens": 10879,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10879,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010879,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010949
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "bee6ed5e1bdcaf94"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "run_id": "0e851354dc56",
+      "call": 2,
+      "response_id": "resp_046b5cf9abaf164b006af3b40f6cdc8190b69f357f52326913",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11300,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 86,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 11386
+      },
+      "usage_source": "api",
+      "input_tokens": 11300,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11300,
+      "output_tokens": 86,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.00113,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 4.3e-05,
+        "total_usd": 0.001173
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "f1eb18ab5967cc0c"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "2068af7358ec",
+      "call": 1,
+      "response_id": "resp_0b8f815ce2aa4a7e006af3b41268a881948013916e58c791e4",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 10878,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 14,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 10892
+      },
+      "usage_source": "api",
+      "input_tokens": 10878,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 10878,
+      "output_tokens": 14,
+      "reasoning_tokens": 0,
+      "cost": {
+        "uncached_input_usd": 0.0010878,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7e-06,
+        "total_usd": 0.0010948
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "b95536a4d23b68cf"
+    },
+    {
+      "setup": "no_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "run_id": "2068af7358ec",
+      "call": 2,
+      "response_id": "resp_0b8f815ce2aa4a7e006af3b41570f88194aa2dc34e26358a22",
+      "api_model": "gpt-6-luna-global",
+      "api_usage": {
+        "input_tokens": 11012,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 157,
+        "output_tokens_details": {
+          "reasoning_tokens": 47
+        },
+        "total_tokens": 11169
+      },
+      "usage_source": "api",
+      "input_tokens": 11012,
+      "cached_input_tokens": 0,
+      "cache_write_tokens": 0,
+      "uncached_input_tokens": 11012,
+      "output_tokens": 157,
+      "reasoning_tokens": 47,
+      "cost": {
+        "uncached_input_usd": 0.0011012,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0,
+        "output_usd": 7.85e-05,
+        "total_usd": 0.0011797
+      },
+      "prompt_cache_diagnostics": null,
+      "instructions_sha256": "dc2597084b90d0c2"
+    }
+  ],
+  "follow_up_experiments": {
+    "notes": {
+      "repeat_identical_run": "p01 run twice back to back with byte-identical request bodies (0-line diff): each run's first call wrote the cache again.",
+      "comparison_response_id_single": "Run B's first call sent prompt_cache_options.comparison_response_id = run A's first response id: it read the cache.",
+      "linked_chain": "4 runs; runs 2-4 each pointed at the previous run's last response id. Linked runs read the cache on both calls.",
+      "naive_no_cache_implicit_writes": "Random prefix only, OpenAI default implicit caching left on: 0 reads but every call billed as a cache write."
+    },
+    "runs": [
+      {
+        "experiment": "repeat_identical_run",
+        "run_id": "99a2c096349b",
+        "time": "2026-11-10T19:18:24-05:00",
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 10717,
+            "output_tokens": 14,
+            "total_usd": 0.00136063
+          },
+          {
+            "call": 2,
+            "input_tokens": 11297,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 104,
+            "total_usd": 0.00021717
+          }
+        ],
+        "total_usd": 0.0015778
+      },
+      {
+        "experiment": "repeat_identical_run",
+        "run_id": "b7c54f2f27fc",
+        "time": "2026-11-10T19:18:25-05:00",
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 10717,
+            "output_tokens": 14,
+            "total_usd": 0.00136063
+          },
+          {
+            "call": 2,
+            "input_tokens": 11297,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 104,
+            "total_usd": 0.00021717
+          }
+        ],
+        "total_usd": 0.0015778
+      },
+      {
+        "experiment": "comparison_response_id_single",
+        "run_id": "e1a99fed5887",
+        "time": "2026-11-10T19:19:30-05:00",
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 10717,
+            "output_tokens": 14,
+            "total_usd": 0.00136063
+          },
+          {
+            "call": 2,
+            "input_tokens": 11297,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 104,
+            "total_usd": 0.00021717
+          }
+        ],
+        "total_usd": 0.0015778
+      },
+      {
+        "experiment": "comparison_response_id_single",
+        "run_id": "79f9dfa9fe51",
+        "time": "2026-11-10T19:19:32-05:00",
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 14,
+            "total_usd": 0.00012817
+          },
+          {
+            "call": 2,
+            "input_tokens": 11297,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 104,
+            "total_usd": 0.00021717
+          }
+        ],
+        "total_usd": 0.00034534
+      },
+      {
+        "experiment": "linked_chain",
+        "run_id": "8200ef5f68dc",
+        "time": "2026-11-10T19:19:57-05:00",
+        "document": "data/practice_docs/p04_harborstitch_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 10717,
+            "output_tokens": 14,
+            "total_usd": 0.00136063
+          },
+          {
+            "call": 2,
+            "input_tokens": 11323,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 111,
+            "total_usd": 0.00022327
+          }
+        ],
+        "total_usd": 0.0015839
+      },
+      {
+        "experiment": "linked_chain",
+        "run_id": "3cb1efb94021",
+        "time": "2026-11-10T19:19:59-05:00",
+        "document": "data/practice_docs/p08_chapelst_email.eml",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 14,
+            "total_usd": 0.00012817
+          },
+          {
+            "call": 2,
+            "input_tokens": 10998,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 79,
+            "total_usd": 0.00017477
+          }
+        ],
+        "total_usd": 0.00030294
+      },
+      {
+        "experiment": "linked_chain",
+        "run_id": "1e65f86b5c76",
+        "time": "2026-11-10T19:20:07-05:00",
+        "document": "data/practice_docs/p10_eastrock_email.eml",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 14,
+            "total_usd": 0.00012817
+          },
+          {
+            "call": 2,
+            "input_tokens": 11017,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 109,
+            "total_usd": 0.00019167
+          }
+        ],
+        "total_usd": 0.00031984
+      },
+      {
+        "experiment": "linked_chain",
+        "run_id": "d7222124a9f0",
+        "time": "2026-11-10T19:20:11-05:00",
+        "document": "data/practice_docs/p11_yorkst_quote.html",
+        "setup_logged_as": "cached",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10857,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 14,
+            "total_usd": 0.00012817
+          },
+          {
+            "call": 2,
+            "input_tokens": 11278,
+            "cached_input_tokens": 10717,
+            "cache_write_tokens": 0,
+            "output_tokens": 130,
+            "total_usd": 0.00022827
+          }
+        ],
+        "total_usd": 0.00035644
+      },
+      {
+        "experiment": "naive_no_cache_implicit_writes",
+        "run_id": "a40cd633873e",
+        "time": "2026-11-10T19:20:54-05:00",
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "setup_logged_as": "naive_nocache_probe",
+        "calls": [
+          {
+            "call": 1,
+            "input_tokens": 10877,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 10751,
+            "output_tokens": 14,
+            "total_usd": 0.00136348
+          },
+          {
+            "call": 2,
+            "input_tokens": 11317,
+            "cached_input_tokens": 0,
+            "cache_write_tokens": 11191,
+            "output_tokens": 107,
+            "total_usd": 0.00146497
+          }
+        ],
+        "total_usd": 0.00282845
+      }
+    ]
+  }
+}

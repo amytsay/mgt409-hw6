@@ -1,0 +1,6 @@
+# HW6 vendor desk agent
+# PydanticAI with the OpenAI provider only (class rule: slim package, not the full pydantic-ai)
+pydantic-ai-slim[openai]>=2.66
+pypdf               # read PDF vendor quotes
+python-dotenv       # load PORTKEY_API_KEY from .env
+tiktoken            # local token counting (Problem 2 estimate); no API call, $0

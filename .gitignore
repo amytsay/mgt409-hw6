@@ -1,0 +1,29 @@
+# Secrets: never commit a real .env. Only .env.example (placeholders) goes in the repo.
+.env
+.env.*
+!.env.example
+
+# Course data download (unzipped into data/)
+*.zip
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Editor / OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Runtime logs that may hold document text (simulated outbox/payments are reviewed, not committed)
+*.log
+
+# Runtime temp files from the JSON log writer
+*.tmp
+
+# Linked-run cache state (last response id per prompt prefix)
+output/cache_link.json
